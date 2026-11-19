@@ -1,0 +1,9 @@
+// Shows the stack trace for a runtime error three calls deep.
+fn parse_price(s) { return s * 100; }
+fn total(items) {
+  let sum = 0;
+  for (let i = 0; i < len(items); i = i + 1) sum = sum + parse_price(items[i]);
+  return sum;
+}
+fn checkout() { return total([1.5, 2, "3.25"]); }
+print(checkout());

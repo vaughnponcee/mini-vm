@@ -1,0 +1,16 @@
+for (let i = 1; i <= 15; i = i + 1) {
+  if (i % 15 == 0) print("FizzBuzz");
+  else if (i % 3 == 0) print("Fizz");
+  else if (i % 5 == 0) print("Buzz");
+  else print(i);
+}
+// while + break/continue
+let n = 0;
+let odd_sum = 0;
+while (true) {
+  n = n + 1;
+  if (n > 99) break;
+  if (n % 2 == 0) continue;
+  odd_sum = odd_sum + n;
+}
+print("sum of odd numbers below 100:", odd_sum);

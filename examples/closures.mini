@@ -1,0 +1,28 @@
+// Each counter owns its own captured `n`.
+fn make_counter() {
+  let n = 0;
+  return fn() { n = n + 1; return n; };
+}
+let a = make_counter();
+let b = make_counter();
+a(); a();
+print("a:", a(), "b:", b());
+
+// Closures capture variables, not values: both see the same `x`.
+fn pair() {
+  let x = 1;
+  let get = fn() { return x; };
+  let set = fn(v) { x = v; };
+  return [get, set];
+}
+let p = pair();
+p[1](42);
+print("shared:", p[0]());
+
+// A closure created in each loop iteration captures that iteration's variable.
+let fns = [];
+for (let i = 0; i < 3; i = i + 1) {
+  let j = i;
+  push(fns, fn() { return j * 10; });
+}
+print(fns[0](), fns[1](), fns[2]());

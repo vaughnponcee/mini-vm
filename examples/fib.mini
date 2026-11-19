@@ -1,0 +1,4 @@
+fn fib(n) { if (n < 2) return n; return fib(n - 1) + fib(n - 2); }
+let t = clock();
+let r = fib(25);
+print("fib(25) =", r, "in", floor((clock() - t) * 1000), "ms");
